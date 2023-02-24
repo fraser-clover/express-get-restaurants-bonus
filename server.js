@@ -10,3 +10,8 @@ app.listen(port, () => {
     sequelize.sync()
     console.log("App listening on port " + port)
 })
+
+app.get("/restaurants", async (request, response) => {
+    let restaurants = await Restaurant.findAll({include: Menu})
+    response.send(restaurants);
+  });
