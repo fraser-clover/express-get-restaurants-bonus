@@ -11,9 +11,12 @@ const syncSeed = async () => {
     await appleBees.addMenu(lunchMenu);
     let masala = await Item.create(seedItem[0])
     let soup = await Item.create(seedItem[1])
+    let hamburger = await Item.create(seedItem[2])
 
     await breakfastMenu.addItem(masala);
     await breakfastMenu.addItem(soup);
+
+    await lunchMenu.addItem(hamburger);
 
 }
 

@@ -12,6 +12,20 @@ app.listen(port, () => {
 })
 
 app.get("/restaurants", async (request, response) => {
-    let restaurants = await Restaurant.findAll({include: Menu})
+    let restaurants = await Restaurant.findAll(
+   
+        {
+            include: Menu, //Which model should we add here?
+                include: [{
+                    model: Menu,
+                    include: [{
+                        model: Item //Which model should we add here?
+                    }]
+                }]
+        }
+        
+
+    
+    )
     response.send(restaurants);
   });
