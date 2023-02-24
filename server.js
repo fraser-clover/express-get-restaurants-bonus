@@ -15,11 +15,11 @@ app.get("/restaurants", async (request, response) => {
     let restaurants = await Restaurant.findAll(
    
         {
-            include: Menu, //Which model should we add here?
+            include: Menu,
                 include: [{
                     model: Menu,
                     include: [{
-                        model: Item //Which model should we add here?
+                        model: Item 
                     }]
                 }]
         }
